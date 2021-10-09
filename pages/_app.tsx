@@ -1,12 +1,12 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
 import {ChakraProvider} from '@chakra-ui/react'
 
 import Nav from '../components/nav/nav'
 import Footer from '../components/footer/footer'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({Component, pageProps}: AppProps) {
   return (
     <ChakraProvider>
       <Head>

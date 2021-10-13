@@ -1,10 +1,11 @@
 import {SimpleGrid, Box, Center, Wrap, WrapItem} from '@chakra-ui/react'
+import {Logo} from './logo'
 
 export default function Nav() {
   return (
     <SimpleGrid columns={2} spacing={2}>
       <Box w="100%" p={4}>
-        Logo
+        <Logo w="32" />
       </Box>
 
       <Box w="100%" p={4}>

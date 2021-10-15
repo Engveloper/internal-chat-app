@@ -10,6 +10,9 @@ import {
 } from '@chakra-ui/react'
 import {PhoneIcon, AddIcon, WarningIcon} from '@chakra-ui/icons'
 
+
+import Hero from '../components/hero'
+
 const Home: NextPage = () => {
   return (
     <Box p={10}>
@@ -47,6 +50,10 @@ const Home: NextPage = () => {
             <Box boxShadow={`sm`} minH={430} bg={`white`} mt={5}></Box>
           </Box>
         </Flex>
+      </Box>
+
+      <Box>
+        <Hero />
       </Box>
     </Box>
   )

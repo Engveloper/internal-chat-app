@@ -18,3 +18,4 @@ export default function ContactUs() {
       </form>
     </div>
   );
+}

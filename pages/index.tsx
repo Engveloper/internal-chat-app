@@ -1,10 +1,33 @@
 import type {NextPage} from 'next'
 import React, {useState} from 'react'
-import {Box, Button, Flex, Input, InputGroup, Stack} from '@chakra-ui/react'
-import {Formik} from 'formik'
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Input,
+  InputGroup,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
+import {
+  Formik,
+  Form,
+  Field,
+  FieldAttributes,
+  FieldMetaProps,
+  FieldInputProps,
+  FormikProps,
+} from 'formik'
 import {PhoneIcon, AddIcon, WarningIcon} from '@chakra-ui/icons'
 
 import Hero from '../components/hero'
+
+interface FieldProps<V = any> {
+  field: FieldInputProps<V>
+  form: FormikProps<V>
+  meta: FieldMetaProps<V>
+}
 
 const Home: NextPage = () => {
   const [messages, setMessages] = useState<string[]>([])
@@ -46,20 +69,34 @@ const Home: NextPage = () => {
               </Button>
             </Stack>
 
-            <Box boxShadow={`sm`} minH={430} bg={`white`} mt={5}></Box>
+            <Box boxShadow={`sm`} minH={430} bg={`white`} mt={5}>
+              {messages.map((msg, key) => (
+                <Text key={`msg_${key}`}>{msg}</Text>
+              ))}
+            </Box>
 
             <Formik
               initialValues={{chatInput: ''}}
-              onSubmit={(values) => sendMessage({message: values.chatInput})}
+              onSubmit={(values) => {
+                sendMessage({message: values.chatInput})
+              }}
             >
-              <Flex marginTop={2} gridGap="4px">
-                <Input
-                  name="chatInput"
-                  placeholder="Hi there!"
-                  backgroundColor="white"
-                />
-                <Button backgroundColor="white">Send</Button>
-              </Flex>
+              <Form>
+                <HStack marginTop={2} spacing="4px">
+                  <Field name="chatInput">
+                    {({field}: FieldProps) => (
+                      <Input
+                        placeholder="Hi there!"
+                        backgroundColor="white"
+                        {...field}
+                      />
+                    )}
+                  </Field>
+                  <Button backgroundColor="white" type="submit">
+                    Send
+                  </Button>
+                </HStack>
+              </Form>
             </Formik>
           </Box>
         </Flex>

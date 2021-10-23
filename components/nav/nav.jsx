@@ -12,22 +12,22 @@ export default function Nav() {
         <Wrap>
           <WrapItem>
             <Center w="100px" h="40px" bg="gray.200">
-              Item 1
+              About Us
             </Center>
           </WrapItem>
           <WrapItem>
             <Center w="100px" h="40px" bg="gray.200">
-              Item 2
+              Latest Messages
             </Center>
           </WrapItem>
           <WrapItem>
             <Center w="100px" h="40px" bg="gray.200">
-              Item 3
+              Notifications
             </Center>
           </WrapItem>
           <WrapItem>
             <Center w="100px" h="40px" bg="gray.200">
-              Item 4
+              Setting
             </Center>
           </WrapItem>
         </Wrap>

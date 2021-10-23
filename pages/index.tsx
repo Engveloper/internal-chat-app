@@ -1,18 +1,18 @@
 import type {NextPage} from 'next'
-import {
-  Box,
-  Button,
-  Flex,
-  Icon,
-  Input,
-  InputGroup,
-  Stack,
-} from '@chakra-ui/react'
+import React, {useState} from 'react'
+import {Box, Button, Flex, Input, InputGroup, Stack} from '@chakra-ui/react'
+import {Formik} from 'formik'
 import {PhoneIcon, AddIcon, WarningIcon} from '@chakra-ui/icons'
 
 import Hero from '../components/hero'
 
 const Home: NextPage = () => {
+  const [messages, setMessages] = useState<string[]>([])
+
+  function sendMessage({message}: {message: string}) {
+    setMessages([...messages, message])
+  }
+
   return (
     <Box p={10}>
       <Box boxShadow={`xl`} rounded="md" bg={`gray.100`}>
@@ -47,6 +47,20 @@ const Home: NextPage = () => {
             </Stack>
 
             <Box boxShadow={`sm`} minH={430} bg={`white`} mt={5}></Box>
+
+            <Formik
+              initialValues={{chatInput: ''}}
+              onSubmit={(values) => sendMessage({message: values.chatInput})}
+            >
+              <Flex marginTop={2} gridGap="4px">
+                <Input
+                  name="chatInput"
+                  placeholder="Hi there!"
+                  backgroundColor="white"
+                />
+                <Button backgroundColor="white">Send</Button>
+              </Flex>
+            </Formik>
           </Box>
         </Flex>
       </Box>

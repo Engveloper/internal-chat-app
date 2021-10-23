@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react'
 import {PhoneIcon, AddIcon, WarningIcon} from '@chakra-ui/icons'
 
-
 import Hero from '../components/hero'
 
 const Home: NextPage = () => {

@@ -8,18 +8,18 @@ export default function AboutUs() {
 
       <Grid templateColums="repeat(auto-fill, minmax(200px, 1fr))">
         <Box>
-            <Heading>History</Heading>
-            <Box></Box>
+          <Heading>History</Heading>
+          <Box></Box>
         </Box>
         <Box>
-            <Heading>Records</Heading>
-            <Box></Box>
+          <Heading>Records</Heading>
+          <Box></Box>
         </Box>
         <Box>
-            <Heading>Information</Heading>
-            <Box></Box>
+          <Heading>Information</Heading>
+          <Box></Box>
         </Box>
       </Grid>
     </div>
-  );
+  )
 }
